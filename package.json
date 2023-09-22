@@ -10,6 +10,7 @@
     },
     "devDependencies": {
         "@types/node": "^20.6.3",
+        "@types/yargs": "^17.0.24",
         "@typescript-eslint/eslint-plugin": "^6.7.2",
         "@typescript-eslint/parser": "^6.7.2",
         "eslint": "^8.49.0",
@@ -22,6 +23,7 @@
     },
     "dependencies": {
         "canvas": "^2.11.2",
-        "promisify": "^0.0.3"
+        "promisify": "^0.0.3",
+        "yargs": "^17.7.2"
     }
 }

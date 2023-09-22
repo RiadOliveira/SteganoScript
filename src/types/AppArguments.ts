@@ -3,9 +3,8 @@ export type Mode = 'encoding' | 'decoding';
 export interface AppArguments {
     mode: Mode;
     imagePath: string;
-    messagePath?: string;
+    pathMessage?: string;
     directMessage?: string;
-    help?: true;
 }
 
 export type ArgumentName = keyof AppArguments;

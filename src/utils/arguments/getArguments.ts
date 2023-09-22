@@ -1,30 +1,35 @@
-import { AppArguments, ArgumentName } from 'types/AppArguments';
+import { AppArguments } from 'types/AppArguments';
+import yargs from 'yargs';
 
-const ARGUMENT_PREFIX = '-';
-
-export const getArguments = () => {
-    const appArguments = {} as AppArguments;
-
-    process.argv.forEach(iterationArgument =>
-        updateAppArguments(appArguments, iterationArgument),
-    );
-
-    return appArguments;
-};
-
-const updateAppArguments = (
-    appArguments: AppArguments,
-    iterationArgument: string,
-) => {
-    const prefixLastPosition = iterationArgument.lastIndexOf(ARGUMENT_PREFIX);
-    if (prefixLastPosition === -1) return;
-
-    const [argumentName, argumentValue] = iterationArgument
-        .slice(prefixLastPosition + 1)
-        .split('=');
-
-    const parsedName = argumentName as ArgumentName;
-    const parsedValue = (parsedName === 'help' ? true : argumentValue) as never;
-
-    appArguments[parsedName] = parsedValue;
-};
+export const getArguments = () =>
+    yargs
+        .option('mode', {
+            alias: 'm',
+            describe:
+                'Choose the steganography mode. Available options are encoding or decoding.',
+            demandOption: true,
+            type: 'string',
+        })
+        .option('imagePath', {
+            alias: 'i',
+            describe:
+                'Specify the path to the image file where the message will be hidden.',
+            demandOption: true,
+            type: 'string',
+        })
+        .option('pathMessage', {
+            alias: 'p',
+            describe:
+                'Specify the path to a text file containing the message to hide.',
+            type: 'string',
+        })
+        .option('directMessage', {
+            alias: 'd',
+            describe:
+                'Provide the message directly as a command-line argument.',
+            type: 'string',
+        })
+        .help()
+        .alias('help', 'h')
+        .version()
+        .alias('version', 'v').argv as AppArguments;

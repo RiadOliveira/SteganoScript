@@ -3,14 +3,11 @@ import { AppArguments } from 'types/AppArguments';
 import { validatePath } from './validatePath';
 
 export const validateArguments = ({
-    help,
     mode,
     imagePath,
-    messagePath,
+    pathMessage,
     directMessage,
 }: AppArguments) => {
-    if (help) return;
-
     const isEncoding = mode === 'encoding';
     const isDecoding = mode === 'decoding';
     if (!isEncoding && !isDecoding) {
@@ -21,7 +18,7 @@ export const validateArguments = ({
         throw new ArgumentError(`Invalid imagePath: ${imagePath}`);
     }
 
-    if (validatePath(messagePath ?? '') || directMessage) return;
+    if (validatePath(pathMessage ?? '') || directMessage) return;
     throw new ArgumentError(
         'Neither message argument (path or direct) provided',
     );
