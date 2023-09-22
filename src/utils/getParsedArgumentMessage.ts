@@ -1,8 +1,5 @@
-import fs from 'fs';
-import { promisify } from 'util';
 import { AppError } from 'error/AppError';
-
-const readFileAsync = promisify(fs.readFile);
+import { readFileAsync } from './readFileAsync';
 
 export const getParsedArgumentMessage = async (
     messagePath?: string,
