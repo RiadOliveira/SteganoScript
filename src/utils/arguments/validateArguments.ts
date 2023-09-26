@@ -1,13 +1,12 @@
 import { ArgumentError } from 'error/ArgumentError';
 import { AppArguments } from 'types/AppArguments';
-import { validateFilePath, validateFolderPath } from './validatePath';
+import { validateFilePath } from './validateFilePath';
 
 export const validateArguments = ({
     mode,
     imagePath,
     pathMessage,
     directMessage,
-    outputFolder,
 }: AppArguments) => {
     const isEncoding = mode === 'encoding';
     const isDecoding = mode === 'decoding';
@@ -17,10 +16,6 @@ export const validateArguments = ({
 
     if (!validateFilePath(imagePath)) {
         throw new ArgumentError(`Invalid imagePath: ${imagePath}`);
-    }
-
-    if (!validateFolderPath(outputFolder ?? '')) {
-        throw new ArgumentError(`Invalid outputFolder path: ${outputFolder}`);
     }
 
     if (isDecoding) return;

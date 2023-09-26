@@ -29,12 +29,12 @@ export const getArguments = () =>
                 'Provide the message directly as a command-line argument.',
             type: 'string',
         })
-        .option('outputFolder', {
+        .option('outputFileName', {
             alias: 'o',
             describe:
-                'Specify the output folder where the result will be saved. For encoding, this is where the image with hidden message will be saved. For decoding, this is where the extracted text message will be saved.',
+                'Specify the output file name (excluding extension) where the result will be saved. For encoding, this is the name of the image with the hidden message. For decoding, this is the name of the extracted text message file.',
             type: 'string',
-            default: './result/',
+            default: 'outputFile',
         })
         .help()
         .alias('help', 'h')

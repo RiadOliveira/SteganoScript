@@ -1,5 +1,11 @@
 /node_modules
-/temp
+
+# Files
+/temp/*
+!/temp/.gitkeep
+
+/outputs/*
+!/outputs/.gitkeep
 
 # Environment
 .env

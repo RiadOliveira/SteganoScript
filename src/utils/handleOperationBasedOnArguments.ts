@@ -9,7 +9,7 @@ export const handleOperationBasedOnArguments = async ({
     imagePath,
     pathMessage,
     directMessage,
-    outputFolder,
+    outputFileName,
 }: AppArguments) => {
     const canvasData = await readImageToCanvasData(imagePath);
     const message = await getParsedArgumentMessage(pathMessage, directMessage);
@@ -17,5 +17,5 @@ export const handleOperationBasedOnArguments = async ({
     const operationFunction =
         mode === 'encoding' ? encodeMessageInImage : decodeMessageFromImage;
 
-    return operationFunction({ canvasData, message, outputFolder });
+    return operationFunction({ canvasData, message, outputFileName });
 };

@@ -1,10 +1,5 @@
 import { getArguments } from './getArguments';
 import { validateArguments } from './validateArguments';
-import { validateFilePath, validateFolderPath } from './validatePath';
+import { validateFilePath } from './validateFilePath';
 
-export {
-    getArguments,
-    validateArguments,
-    validateFilePath,
-    validateFolderPath,
-};
+export { getArguments, validateArguments, validateFilePath };
