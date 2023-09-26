@@ -1,11 +1,14 @@
-import { getHandleFunctionBasedOnArguments } from './getHandleFunctionBasedOnArguments';
+import { handleOperationBasedOnArguments } from './handleOperationBasedOnArguments';
 import { readImageToCanvasData } from './readImageToCanvasData';
 import { getParsedArgumentMessage } from './getParsedArgumentMessage';
-import { readFileAsync } from './readFileAsync';
+import { createImageFileFromCanvas } from './createImageFileFromCanvas';
+import { readFileAsync, writeFileAsync } from './asyncFileOperations';
 
 export {
-    getHandleFunctionBasedOnArguments,
+    handleOperationBasedOnArguments,
     readImageToCanvasData,
     getParsedArgumentMessage,
     readFileAsync,
+    writeFileAsync,
+    createImageFileFromCanvas,
 };

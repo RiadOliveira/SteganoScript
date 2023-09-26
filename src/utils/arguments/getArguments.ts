@@ -13,7 +13,7 @@ export const getArguments = () =>
         .option('imagePath', {
             alias: 'i',
             describe:
-                'Specify the path to the image file where the message will be hidden.',
+                'Specify the path to the image file. For encoding, this is where the message will be hidden. For decoding, this is where the hidden message will be revealed.',
             demandOption: true,
             type: 'string',
         })
@@ -28,6 +28,13 @@ export const getArguments = () =>
             describe:
                 'Provide the message directly as a command-line argument.',
             type: 'string',
+        })
+        .option('outputFolder', {
+            alias: 'o',
+            describe:
+                'Specify the output folder where the result will be saved. For encoding, this is where the image with hidden message will be saved. For decoding, this is where the extracted text message will be saved.',
+            type: 'string',
+            default: './result/',
         })
         .help()
         .alias('help', 'h')

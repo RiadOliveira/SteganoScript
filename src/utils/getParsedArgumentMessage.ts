@@ -1,5 +1,5 @@
 import { AppError } from 'error/AppError';
-import { readFileAsync } from './readFileAsync';
+import { readFileAsync } from 'utils';
 
 export const getParsedArgumentMessage = async (
     pathMessage?: string,

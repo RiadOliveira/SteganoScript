@@ -4,11 +4,12 @@ import { getParsedArgumentMessage } from './getParsedArgumentMessage';
 import { encodeMessageInImage } from 'encoding/encodeMessageInImage';
 import { decodeMessageFromImage } from 'decoding/decodeMessageFromImage';
 
-export const getHandleFunctionBasedOnArguments = async ({
+export const handleOperationBasedOnArguments = async ({
     mode,
     imagePath,
     pathMessage,
     directMessage,
+    outputFolder,
 }: AppArguments) => {
     const canvasData = await readImageToCanvasData(imagePath);
     const message = await getParsedArgumentMessage(pathMessage, directMessage);
@@ -16,5 +17,5 @@ export const getHandleFunctionBasedOnArguments = async ({
     const operationFunction =
         mode === 'encoding' ? encodeMessageInImage : decodeMessageFromImage;
 
-    return () => operationFunction({ canvasData, message });
+    return operationFunction({ canvasData, message, outputFolder });
 };

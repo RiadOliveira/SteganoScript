@@ -1,12 +1,13 @@
 import { ArgumentError } from 'error/ArgumentError';
 import { AppArguments } from 'types/AppArguments';
-import { validatePath } from './validatePath';
+import { validateFilePath, validateFolderPath } from './validatePath';
 
 export const validateArguments = ({
     mode,
     imagePath,
     pathMessage,
     directMessage,
+    outputFolder,
 }: AppArguments) => {
     const isEncoding = mode === 'encoding';
     const isDecoding = mode === 'decoding';
@@ -14,11 +15,17 @@ export const validateArguments = ({
         throw new ArgumentError(`Invalid mode: ${mode}`);
     }
 
-    if (!validatePath(imagePath)) {
+    if (!validateFilePath(imagePath)) {
         throw new ArgumentError(`Invalid imagePath: ${imagePath}`);
     }
 
-    if (validatePath(pathMessage ?? '') || directMessage) return;
+    if (!validateFolderPath(outputFolder ?? '')) {
+        throw new ArgumentError(`Invalid outputFolder path: ${outputFolder}`);
+    }
+
+    if (isDecoding) return;
+    if (validateFilePath(pathMessage ?? '') || directMessage) return;
+
     throw new ArgumentError(
         'Neither message argument (path or direct) provided',
     );
