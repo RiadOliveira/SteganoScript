@@ -20,13 +20,13 @@ export const getArguments = () =>
         .option('pathMessage', {
             alias: 'p',
             describe:
-                'Specify the path to a text file containing the message to hide.',
+                'Specify the path to a text file containing the message to hide. (Required for encoding mode if directMessage is not provided.)',
             type: 'string',
         })
         .option('directMessage', {
             alias: 'd',
             describe:
-                'Provide the message directly as a command-line argument.',
+                'Provide the message directly as a command-line argument. (Required for encoding mode if pathMessage is not provided.)',
             type: 'string',
         })
         .option('outputFileName', {

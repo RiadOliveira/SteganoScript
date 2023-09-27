@@ -22,6 +22,6 @@ export const validateArguments = ({
     if (validateFilePath(pathMessage ?? '') || directMessage) return;
 
     throw new ArgumentError(
-        'Neither message argument (path or direct) provided',
+        'For encoding mode, either directMessage or pathMessage is required.',
     );
 };
