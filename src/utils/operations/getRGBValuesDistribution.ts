@@ -5,30 +5,61 @@ export const getRGBValuesDistribution = (
     targetCharCodeValue: number,
 ): number[] => {
     const originalRGBValuesCharCode = getCharCodeFromRGB(originalRGBValues);
-    console.log(`original RGB values: ${originalRGBValues} | original char code: ${originalRGBValuesCharCode} | target char code: ${targetCharCodeValue}`)
+    console.log(
+        `original RGB values: [${originalRGBValues}] | original char code: ${originalRGBValuesCharCode} | target char code: ${targetCharCodeValue}`,
+    );
 
-    let difference = targetCharCodeValue - originalRGBValuesCharCode;
+    const originalCharCodeDifference =
+        targetCharCodeValue - originalRGBValuesCharCode;
+
+    console.log(originalCharCodeDifference);
     const adjustedRGBValues = [...originalRGBValues];
-  
-    while (difference !== 0) {
-      for (let i = 0; i < 3; i++) {
-        if (difference === 0) break;
-  
-        const adjustmentAmount = Math.min(Math.abs(difference), 256);
-        const sign = difference < 0 ? -1 : 1;
-  
-        adjustedRGBValues[i] += sign * adjustmentAmount;
-  
-        if (adjustedRGBValues[i] > 255) {
-          adjustedRGBValues[i] -= 255;
-        } else if (adjustedRGBValues[i] < 0) {
-          adjustedRGBValues[i] += 0;
-        }
-  
-        difference -= sign * adjustmentAmount;
-      }
-    }
-  
-    console.log(`readjusted RGB values: ${adjustedRGBValues} | readjusted char code: ${getCharCodeFromRGB(adjustedRGBValues)}`)
+
+    if (originalCharCodeDifference == 0) return originalRGBValues;
+
+    originalCharCodeDifference < 0
+        ? adjustNegativeDifference(adjustedRGBValues, targetCharCodeValue)
+        : adjustPositiveDifference(adjustedRGBValues, targetCharCodeValue);
+
     return adjustedRGBValues;
+};
+
+const adjustNegativeDifference = (
+    adjustedRGBValues: number[],
+    targetCharCodeValue: number,
+) => {
+    for (let i = 2; i >= 0; i--) {
+        while (
+            getCharCodeFromRGB(
+                adjustedRGBValues.map((value, index) =>
+                    index === i ? value - 1 : value,
+                ),
+            ) >= targetCharCodeValue
+        ) {
+            adjustedRGBValues[i]--;
+            if (getCharCodeFromRGB(adjustedRGBValues) === targetCharCodeValue) {
+                return adjustedRGBValues;
+            }
+        }
+    }
+};
+
+const adjustPositiveDifference = (
+    adjustedRGBValues: number[],
+    targetCharCodeValue: number,
+) => {
+    for (let i = 2; i >= 0; i--) {
+        while (
+            getCharCodeFromRGB(
+                adjustedRGBValues.map((value, index) =>
+                    index === i ? value + 1 : value,
+                ),
+            ) <= targetCharCodeValue
+        ) {
+            adjustedRGBValues[i]++;
+            if (getCharCodeFromRGB(adjustedRGBValues) === targetCharCodeValue) {
+                return adjustedRGBValues;
+            }
+        }
+    }
 };
