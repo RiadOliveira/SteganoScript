@@ -12,14 +12,17 @@ export const getRGBValuesDistribution = (
     const originalCharCodeDifference =
         targetCharCodeValue - originalRGBValuesCharCode;
 
-    console.log(originalCharCodeDifference);
+    console.log(`difference: ${originalCharCodeDifference}`);
+
     const adjustedRGBValues = [...originalRGBValues];
 
     if (originalCharCodeDifference == 0) return originalRGBValues;
 
-    originalCharCodeDifference < 0
-        ? adjustNegativeDifference(adjustedRGBValues, targetCharCodeValue)
-        : adjustPositiveDifference(adjustedRGBValues, targetCharCodeValue);
+    (originalCharCodeDifference < 0
+        ? adjustNegativeDifference
+        : adjustPositiveDifference)(adjustedRGBValues, targetCharCodeValue);
+
+    areRGBValuesValid(adjustedRGBValues);
 
     return adjustedRGBValues;
 };
@@ -37,6 +40,7 @@ const adjustNegativeDifference = (
             ) >= targetCharCodeValue
         ) {
             adjustedRGBValues[i]--;
+
             if (getCharCodeFromRGB(adjustedRGBValues) === targetCharCodeValue) {
                 return adjustedRGBValues;
             }
@@ -57,9 +61,13 @@ const adjustPositiveDifference = (
             ) <= targetCharCodeValue
         ) {
             adjustedRGBValues[i]++;
+
             if (getCharCodeFromRGB(adjustedRGBValues) === targetCharCodeValue) {
                 return adjustedRGBValues;
             }
         }
     }
 };
+
+const areRGBValuesValid = (rgbValues: number[]): boolean =>
+    rgbValues.some(value => value < 0 || value > 255);
