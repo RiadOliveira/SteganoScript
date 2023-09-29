@@ -10,6 +10,6 @@ export const getParsedArgumentMessage = async (
     try {
         return await readFileAsync(pathMessage!, 'utf8');
     } catch (error) {
-        throw new AppError('Error while reading message file');
+        throw new AppError('Error while reading message file.');
     }
 };

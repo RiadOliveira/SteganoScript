@@ -27,7 +27,7 @@ export const getNextPixelForOperation = ({
 
     const difference = initialInd - currentInd;
     if (difference === COMPARABLE_DIFFERENCE) {
-        throw new AppError('Unable to hide message, length limit reached');
+        throw new AppError('Unable to get next pixel, length limit reached.');
     }
 
     return currentInd + PIXEL_JUMPS[0];

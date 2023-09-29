@@ -17,6 +17,6 @@ export const readImageToCanvasData = async (
 
         return { canvas, context, imageData };
     } catch (error) {
-        throw new AppError('Error while reading image file');
+        throw new AppError('Error while reading image file.');
     }
 };

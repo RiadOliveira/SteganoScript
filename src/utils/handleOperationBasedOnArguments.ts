@@ -12,10 +12,12 @@ export const handleOperationBasedOnArguments = async ({
     outputFileName,
 }: AppArguments) => {
     const canvasData = await readImageToCanvasData(imagePath);
+
+    if (mode === 'decoding') {
+        await decodeMessageFromImage({ canvasData, outputFileName });
+        return;
+    }
+
     const message = await getParsedArgumentMessage(pathMessage, directMessage);
-
-    const operationFunction =
-        mode === 'encoding' ? encodeMessageInImage : decodeMessageFromImage;
-
-    return operationFunction({ canvasData, message, outputFileName });
+    await encodeMessageInImage({ canvasData, message, outputFileName });
 };
