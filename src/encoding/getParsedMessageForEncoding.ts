@@ -1,10 +1,4 @@
-import {
-    MESSAGE_ENDING_CHAR,
-    QUANTITY_OF_ENDING_CHAR_IN_MESSAGE,
-} from 'constants/messageEndingChar';
+import { HEADER_ENDING_CHAR } from 'constants/headerEndingChar';
 
 export const getParsedMessageForEncoding = (originalMessage: string) =>
-    originalMessage +
-    Array.from({ length: QUANTITY_OF_ENDING_CHAR_IN_MESSAGE })
-        .map(() => MESSAGE_ENDING_CHAR)
-        .join('');
+    originalMessage.length + HEADER_ENDING_CHAR + originalMessage;

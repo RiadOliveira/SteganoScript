@@ -21,7 +21,7 @@ export const encodeMessageInImage = async ({
     const initialPixelInd = getInitialPixelForOperation(canvasData);
 
     let currentPixelInd = initialPixelInd;
-    for (let messagInd = 0; messagInd < parsedMessage.length; messagInd++) {
+    for (let messageInd = 0; messageInd < parsedMessage.length; messageInd++) {
         const rgbValuesFromInd = getRGBValuesFromPixelIndex(
             data,
             currentPixelInd,
@@ -29,14 +29,14 @@ export const encodeMessageInImage = async ({
 
         const adjustedRGBValues = getAdjustedRGBValues(
             rgbValuesFromInd,
-            parsedMessage.charCodeAt(messagInd),
+            parsedMessage.charCodeAt(messageInd),
         );
         updatePixelsUsingRGBValues(data, currentPixelInd, adjustedRGBValues);
 
         currentPixelInd = getNextPixelForOperation({
             initialPixelInd,
             currentPixelInd,
-            operationInd: messagInd,
+            operationInd: messageInd,
             imageDataLength: data.length,
         });
     }

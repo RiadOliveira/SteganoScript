@@ -23,7 +23,11 @@ export const getAdjustedRGBValues = (
         charCodesDifference,
     );
     const adjustedValuesTag = getLimitTagForRGBValues(adjustedRGBValues);
-    if (adjustedValuesTag === LIMIT_TAGS.INSIDE_LIMIT) return adjustedRGBValues;
+
+    const adjustmentWorked =
+        adjustedValuesTag === LIMIT_TAGS.INSIDE_LIMIT &&
+        getCharCodeFromRGB(adjustedRGBValues) === targetCharCode;
+    if (adjustmentWorked) return adjustedRGBValues;
 
     const adjustedDifference = getAdjustedDifference(
         adjustedValuesTag,
@@ -105,8 +109,9 @@ const getAdjustedDifference = (
     originalCharCodesDifference: number,
 ) => {
     const oppositeTag = -adjustedValuesTag;
-    return (
+    const adjustedDifference =
         oppositeTag *
-        (QUANTITY_OF_RGB_VALUES + oppositeTag * originalCharCodesDifference)
-    );
+        (QUANTITY_OF_RGB_VALUES + oppositeTag * originalCharCodesDifference);
+
+    return adjustedDifference || originalCharCodesDifference;
 };

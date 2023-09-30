@@ -6,6 +6,7 @@ import {
 } from 'utils/operations';
 import { getNextPixelForOperation } from 'utils/operations/getNextPixelForOperation';
 import { createTextFileFromString } from 'utils/createTextFileFromString';
+import { getMessageHeaderData } from './getMessageHeaderData';
 
 export const decodeMessageFromImage = async ({
     canvasData,
@@ -16,22 +17,25 @@ export const decodeMessageFromImage = async ({
     } = canvasData;
 
     const initialPixelInd = getInitialPixelForOperation(canvasData);
-    const decodedMessage = [] as string[];
+    const { messageLength, nextPixelInd, nextOperationInd } =
+        getMessageHeaderData(data, initialPixelInd);
 
-    let currentPixelInd = initialPixelInd;
-    while (!messageFullyDecoded(decodedMessage)) {
+    const messageBuffer: string[] = [];
+    let currentPixelInd = nextPixelInd;
+
+    while (!messageFullyDecoded(messageBuffer, messageLength)) {
         const iterationChar = String.fromCharCode(
             getCharCodeFromPixel(data, currentPixelInd),
         );
-        decodedMessage.push(iterationChar);
+        messageBuffer.push(iterationChar);
 
         currentPixelInd = getNextPixelForOperation({
             initialPixelInd,
             currentPixelInd,
-            operationInd: decodedMessage.length - 1,
+            operationInd: nextOperationInd + messageBuffer.length - 1,
             imageDataLength: data.length,
         });
     }
 
-    await createTextFileFromString(decodedMessage.join(''), outputFileName);
+    await createTextFileFromString(messageBuffer.join(''), outputFileName);
 };

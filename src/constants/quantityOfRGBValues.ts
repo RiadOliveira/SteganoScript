@@ -1,1 +1,1 @@
-export const QUANTITY_OF_RGB_VALUES = 255;
+export const QUANTITY_OF_RGB_VALUES = 256;
