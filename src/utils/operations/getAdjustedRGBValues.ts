@@ -1,5 +1,6 @@
 import { RGB_WEIGHTS } from 'constants/rgbWeights';
 import { getCharCodeFromRGB } from './getCharCodeFromRGB';
+import { QUANTITY_OF_RGB_VALUES } from 'constants/quantityOfRGBValues';
 
 const RGB_ADJUST_LIMIT = [4, 5, 5];
 
@@ -104,5 +105,8 @@ const getAdjustedDifference = (
     originalCharCodesDifference: number,
 ) => {
     const oppositeTag = -adjustedValuesTag;
-    return oppositeTag * (256 + oppositeTag * originalCharCodesDifference);
+    return (
+        oppositeTag *
+        (QUANTITY_OF_RGB_VALUES + oppositeTag * originalCharCodesDifference)
+    );
 };

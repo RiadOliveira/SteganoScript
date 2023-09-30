@@ -15,19 +15,19 @@ export const decodeMessageFromImage = async ({
         imageData: { data },
     } = canvasData;
 
-    const initialInd = getInitialPixelForOperation(canvasData);
+    const initialPixelInd = getInitialPixelForOperation(canvasData);
     const decodedMessage = [] as string[];
 
-    let currentInd = initialInd;
+    let currentPixelInd = initialPixelInd;
     while (!messageFullyDecoded(decodedMessage)) {
         const iterationChar = String.fromCharCode(
-            getCharCodeFromPixel(data, currentInd),
+            getCharCodeFromPixel(data, currentPixelInd),
         );
         decodedMessage.push(iterationChar);
 
-        currentInd = getNextPixelForOperation({
-            initialInd,
-            currentInd,
+        currentPixelInd = getNextPixelForOperation({
+            initialPixelInd,
+            currentPixelInd,
             operationInd: decodedMessage.length - 1,
             imageDataLength: data.length,
         });

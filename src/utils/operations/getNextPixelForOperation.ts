@@ -1,8 +1,8 @@
 import { AppError } from 'error/AppError';
 
 interface GetNextPixelForOperationProps {
-    initialInd: number;
-    currentInd: number;
+    initialPixelInd: number;
+    currentPixelInd: number;
     operationInd: number;
     imageDataLength: number;
 }
@@ -12,23 +12,23 @@ const COMPARABLE_DIFFERENCE = 2 * PIXEL_SIZE;
 const PIXEL_JUMPS = [2, 4, 6, 8].map(value => value * PIXEL_SIZE);
 
 export const getNextPixelForOperation = ({
-    initialInd,
-    currentInd,
+    initialPixelInd,
+    currentPixelInd,
     operationInd,
     imageDataLength,
 }: GetNextPixelForOperationProps) => {
-    if (currentInd >= initialInd) {
+    if (currentPixelInd >= initialPixelInd) {
         const pixelJump = PIXEL_JUMPS[operationInd % PIXEL_JUMPS.length];
-        const updatedInd = currentInd + pixelJump;
+        const updatedInd = currentPixelInd + pixelJump;
 
         if (updatedInd < imageDataLength) return updatedInd;
-        return Number(!(currentInd % 2));
+        return Number(!(currentPixelInd % 2));
     }
 
-    const difference = initialInd - currentInd;
+    const difference = initialPixelInd - currentPixelInd;
     if (difference === COMPARABLE_DIFFERENCE) {
         throw new AppError('Unable to get next pixel, length limit reached.');
     }
 
-    return currentInd + PIXEL_JUMPS[0];
+    return currentPixelInd + PIXEL_JUMPS[0];
 };
