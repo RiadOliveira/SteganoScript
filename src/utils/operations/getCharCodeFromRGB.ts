@@ -1,4 +1,4 @@
-const RGB_WEIGHTS = [1, 5, 20];
+import { RGB_WEIGHTS } from 'constants/rgbWeights';
 
 export const getCharCodeFromRGB = (rgbValues: number[]) => {
     const rgbWeightedSum = RGB_WEIGHTS.reduce(

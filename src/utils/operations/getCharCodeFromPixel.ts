@@ -1,14 +1,13 @@
-const RGB_WEIGHTS = [1, 5, 20];
+import { RGB_WEIGHTS } from 'constants/rgbWeights';
+import { getCharCodeFromRGB } from './getCharCodeFromRGB';
 
 export const getCharCodeFromPixel = (
     imageData: Uint8ClampedArray,
     redPixelIndex: number,
 ) => {
-    const rgbWeightedSum = RGB_WEIGHTS.reduce(
-        (previous, current, rgbInd) =>
-            previous + imageData[redPixelIndex + rgbInd] * current,
-        0,
+    const rgbValues = Array.from({ length: RGB_WEIGHTS.length }).map(
+        (_, rgbInd) => imageData[redPixelIndex + rgbInd],
     );
 
-    return rgbWeightedSum % 256;
+    return getCharCodeFromRGB(rgbValues);
 };
