@@ -4,7 +4,7 @@ export const getInitialPixelForOperation = ({
     canvas: { width, height },
     imageData: { data: pixels },
 }: CanvasData) => {
-    const lowerDimension = Math.max(width, height);
+    const lowerDimension = Math.min(width, height);
     const higherDimension = Math.max(width, height);
 
     const ratio = lowerDimension / (higherDimension * Math.E);
