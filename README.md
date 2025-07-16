@@ -30,6 +30,7 @@ Contents
   * [Basic Decoding](#example-decoding)
   * [Utility Commands](#example-utility)
 * [📷 Demonstration](#demonstration)
+* [📄 About the Article](#article)
 * [📝 License](#license)
 * [👨‍💻 Authors](#authors)
 <!--te-->
@@ -186,6 +187,11 @@ $ npm run dev -- -m encoding -i=./temp/lena.jpg -d="Super Ultra Secret Message"
 | Original | Encoded |
 |----------|---------|
 | ![original](https://github.com/user-attachments/assets/e178c4fa-b1f3-495f-b99c-3fa48751e86b) | ![encoded](https://github.com/user-attachments/assets/759fe87b-498d-4f8f-96ae-93f9c3c242fa) |
+
+<br/>
+
+<h2 id="article">📄 About the Article</h2>
+This project was developed for our Digital Image Processing course and includes a technical paper explaining the methodology. If you're curious about the implementation details: <a href="https://drive.google.com/file/d/1E5S7mEvG8pii08Gtp9ZelRSZ7PZ4z6EF/view?usp=sharing">📖 Read the full article</a> <i>(PDF, 17 pages - in Brazilian Portuguese).</i> <br/><br/>
 
 <h2 id="license">📝 License</h2>
 This project is MIT Licensed. See <a href="https://github.com/RiadOliveira/SteganoScript/blob/main/LICENSE">LICENSE</a> file for more details.
