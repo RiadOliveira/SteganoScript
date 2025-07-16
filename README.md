@@ -63,8 +63,6 @@ $ cd SteganoScript
 $ npm install
 ```
 
-<br/>
-
 <h3 id="usage">CLI Usage</h3>
 SteganoScript offers a powerful CLI with comprehensive options for image steganography operations:
 
