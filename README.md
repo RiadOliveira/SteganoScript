@@ -68,7 +68,7 @@ $ npm install
 SteganoScript offers a powerful CLI with comprehensive options for image steganography operations:
 
 <h4 id="mode-encoding">Encoding Mode</h4>
-Embed secret messages into images with these options:
+Embed secret messages into images with these options: <br/><br/>
 
 | Option | Alias | Required | Description |
 |--------|-------|----------|-------------|
@@ -78,10 +78,10 @@ Embed secret messages into images with these options:
 | `--directMessage "text"` | `-d` | Conditional* | Direct text input of secret message |
 | `--outputFileName <name>` | `-o` | No | Custom output filename (default: "outputFile") |
 
-*Either `pathMessage` or `directMessage` required for encoding.
+*Either `pathMessage` or `directMessage` required for encoding. <br/><br/>
 
 <h4 id="mode-decoding">Decoding Mode</h4>
-Extract hidden messages from images:
+Extract hidden messages from images: <br/><br/>
 
 | Option | Alias | Required | Description |
 |--------|-------|----------|-------------|
@@ -178,20 +178,16 @@ $ npm run dev -- --version
 
 <h2 id="demonstration">📷 Demonstration</h2>
 
-**Encoding Command:**
 ```bash
 $ npm run dev -- -m encoding -i=./temp/lena.jpg -d="Super Ultra Secret Message"
 ```
 
-**Result:**
 | Original | Encoded |
 |----------|---------|
 | ![original](https://github.com/user-attachments/assets/e178c4fa-b1f3-495f-b99c-3fa48751e86b) | ![encoded](https://github.com/user-attachments/assets/759fe87b-498d-4f8f-96ae-93f9c3c242fa) |
 
-<br/>
-
 <h2 id="article">📚 Academic Article</h2>
-This project was developed for our Digital Image Processing course and includes a technical paper explaining the methodology. If you're curious about the implementation details: <a href="https://drive.google.com/file/d/1E5S7mEvG8pii08Gtp9ZelRSZ7PZ4z6EF/view?usp=sharing">📖 Read the full article</a> <i>(PDF, 17 pages - in Brazilian Portuguese).</i> <br/><br/>
+This project was developed for our Digital Image Processing course and includes a technical paper explaining the methodology. If you're curious about the implementation details: <a href="https://drive.google.com/file/d/1E5S7mEvG8pii08Gtp9ZelRSZ7PZ4z6EF/view?usp=sharing">📖 Read the full article</a> <i>(PDF, 17 pages - in Brazilian Portuguese).</i>
 
 <h2 id="license">📝 License</h2>
 This project is MIT Licensed. See <a href="https://github.com/RiadOliveira/SteganoScript/blob/main/LICENSE">LICENSE</a> file for more details.
