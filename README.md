@@ -68,7 +68,7 @@ $ npm install
 SteganoScript offers a powerful CLI with comprehensive options for image steganography operations:
 
 <h4 id="mode-encoding">Encoding Mode</h4>
-Embed secret messages into images with these options: <br/><br/>
+Embed secret messages into images with these options: <br/>
 
 | Option | Alias | Required | Description |
 |--------|-------|----------|-------------|
@@ -78,10 +78,10 @@ Embed secret messages into images with these options: <br/><br/>
 | `--directMessage "text"` | `-d` | Conditional* | Direct text input of secret message |
 | `--outputFileName <name>` | `-o` | No | Custom output filename (default: "outputFile") |
 
-*Either `pathMessage` or `directMessage` required for encoding. <br/><br/>
+*Either `pathMessage` or `directMessage` required for encoding. <br/>
 
 <h4 id="mode-decoding">Decoding Mode</h4>
-Extract hidden messages from images: <br/><br/>
+Extract hidden messages from images: <br/>
 
 | Option | Alias | Required | Description |
 |--------|-------|----------|-------------|
