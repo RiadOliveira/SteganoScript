@@ -71,7 +71,7 @@ Embed secret messages into images with these options:
 
 | Option | Alias | Required | Description |
 |--------|-------|----------|-------------|
-| `--mode encoding` | `-m e` | Yes | Set operation mode to message embedding |
+| `--mode encoding` | `-m` | Yes | Set operation mode to message embedding |
 | `--imagePath <path>` | `-i` | Yes | Path to carrier image (JPG/PNG) |
 | `--pathMessage <path>` | `-p` | Conditional* | Path to .txt file containing secret message |
 | `--directMessage "text"` | `-d` | Conditional* | Direct text input of secret message |
@@ -84,7 +84,7 @@ Extract hidden messages from images:
 
 | Option | Alias | Required | Description |
 |--------|-------|----------|-------------|
-| `--mode decoding` | `-m d` | Yes | Set operation mode to message extraction |
+| `--mode decoding` | `-m` | Yes | Set operation mode to message extraction |
 | `--imagePath <path>` | `-i` | Yes | Path to encoded image file |
 | `--outputFileName <name>` | `-o` | No | Custom output filename for extracted message |
 
