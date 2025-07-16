@@ -1,0 +1,28 @@
+{
+  "title": "SteganoScript",
+  "extendedDescription": "A TypeScript-based steganography application that enables message hiding within digital images. Developed as part of Digital Image Processing coursework, this CLI tool implements advanced pixel manipulation techniques to embed and extract text messages while maintaining visual integrity.",
+  "imageId": "d2a101fd-4378-4bc2-ae3a-502ea8736379",
+  "highlightColor": "green",
+  "attachmentsUrl": true,
+  "technologies": [
+    "NodeJs",
+    "TypeScript"
+  ],
+  "features": [
+    {
+      "name": "Message Encoding",
+      "description": "Embeds secret messages into images using advanced pixel manipulation algorithms.",
+      "icon": "eyeSlash"
+    },
+    {
+      "name": "Message Decoding",
+      "description": "Accurately extracts hidden messages from encoded images.",
+      "icon": "eye"
+    },
+    {
+      "name": "Weighted Hashing",
+      "description": "RGB encoding (1:5:20 ratio) that ensures character conversion and integrity.",
+      "icon": "balanceScale"
+    }
+  ]
+}
