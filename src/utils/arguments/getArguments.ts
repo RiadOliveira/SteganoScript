@@ -3,6 +3,8 @@ import yargs from 'yargs';
 
 export const getArguments = () =>
     yargs
+        .scriptName("SteganoScript")
+        .usage('$0')
         .option('mode', {
             alias: 'm',
             describe:
