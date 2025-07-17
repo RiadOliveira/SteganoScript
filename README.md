@@ -4,8 +4,8 @@
   A TypeScript-based steganography application that enables message hiding within digital images. Developed as part of Digital Image Processing coursework, this CLI tool implements advanced pixel manipulation techniques to embed and extract text messages while maintaining visual integrity.
 </p>
 
-![image](https://github.com/user-attachments/assets/d2a101fd-4378-4bc2-ae3a-502ea8736379)
-![image](https://img.shields.io/github/license/RiadOliveira/SteganoScript)
+![Preview](https://github.com/user-attachments/assets/d2a101fd-4378-4bc2-ae3a-502ea8736379)
+![License](https://img.shields.io/github/license/RiadOliveira/SteganoScript)
 
 <br/>
 
