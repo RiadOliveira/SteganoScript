@@ -128,9 +128,9 @@ SteganoScript/
 │   ├── types/        # TypeScript interfaces
 │   ├── utils/        # Core operations and validations
 │   └── main.ts       # CLI entry point
-├── .eslintrc        # Code style configuration
-├── package.json     # Project dependencies
-└── tsconfig.json    # TypeScript configuration
+├── .eslintrc         # Code style configuration
+├── package.json      # Project dependencies
+└── tsconfig.json     # TypeScript configuration
 ```
 
 <br/>
